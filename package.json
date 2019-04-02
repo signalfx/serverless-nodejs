@@ -1,0 +1,24 @@
+{
+  "name": "signalfx-gcf",
+  "version": "0.0.11",
+  "description": "Node.js gcf wrapper for SignalFx",
+  "homepage": "https://signalfx.com",
+  "author": {
+    "name": "SignalFx, Inc",
+    "email": "info@signalfx.com",
+    "url": "https://signalfx.com"
+  },
+  "license": "Apache-2.0",
+  "main": "signalfx-gcf",
+  "dependencies": {
+    "signalfx": "5.0.0",
+    "signalfx-serverless-common": "file:./serverless-common-nodejs"
+  },
+  "bundledDependencies": [
+    "signalfx"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/signalfx/google-cloud-function-nodejs"
+  }
+}

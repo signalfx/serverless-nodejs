@@ -1,0 +1,22 @@
+{
+  "name": "signalfx-serverless-common",
+  "version": "1.0.0",
+  "description": "SignalFx NodeJS Serverless Common",
+  "main": "signalfx-serverless-common",
+  "dependencies": {
+    "signalfx": "5.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/signalfx/serverless-common-nodejs.git"
+  },
+  "author": "SignalFx, Inc",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/signalfx/serverless-common-nodejs/issues"
+  },
+  "homepage": "https://github.com/signalfx/serverless-common-nodejs#readme"
+}
