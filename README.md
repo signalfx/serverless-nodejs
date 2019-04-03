@@ -1,6 +1,6 @@
-# ~~SignalFx Node Google Cloud Function Wrapper~~ (This doc will be updated as the dependency structure finalizes)
+# SignalFx Node.js Google Cloud Function Wrapper
 
-SignalFx Node Google Cloud Function Wrapper.
+SignalFx Node.js Google Cloud Function Wrapper
 
 ## Usage
 
@@ -90,22 +90,29 @@ exports.handler = signalFxGCF.wrapper((req, res) => {
 
 ### Deployment
 
-Run `npm pack` to package the module with the configuration in `package.json`.
+Run this command.
+```
+gcloud functions deploy [FUNCTION_NAME] --entry-point [FUNCTION_ENTRY_POINT] --runtime nodejs6 --trigger-http --set-env-vars PROJECT_ID=[GCF_PROJECT_ID],SIGNALFX_AUTH_TOKEN=[SFX_ACCESS_TOKEN],SIGNALFX_INGEST_ENDPOINT=[SFX_INGEST_ENDPOINT_URL]
+```
 
 ## Testing
 
-WIP ~~Install node-lambda via `npm install -g node-lambda` (globally) or `npm install node-lambda` (locally).~~
-
 ### Testing locally
 
-1) Create deploy.env to submit data to SignalFx, containing the required and optional environment variables mentioned above:
+Use [Google Cloud Function Emulator](https://cloud.google.com/functions/docs/emulator)
+to test your function with SignalFx wrapper.
 
-2) Run `node-lambda run -f deploy.env`.
+1) Install Google Cloud Function Emulator.
+```
+npm install -g @google-cloud/functions-emulator
+```
+2) Run the function locally.
+```
+functions start
+functions deploy [FUNCTION_NAME] --trigger-http
+functions call [FUNCTION_NAME]
+```
 
-## Testing from Google Cloud Function
+## License
 
-Run `gcloud functions deploy [FUNTION_NAME_ON_CLOUD] --entry-point [FUNCTION_ENTRY_POINT] --runtime nodejs6 --trigger-http --set-env-vars PROJECT_ID=[GCF_PROJECT_ID],SIGNALFX_AUTH_TOKEN=[SFX_ACCESS_TOKEN],SIGNALFX_INGEST_ENDPOINT=[SFX_INGEST_ENDPOINT_URL]
-
-### License
-
-Apache Software License v2. Copyright © 2014-2019 SignalFx
+Apache Software License v2. Copyright © 2019 SignalFx
