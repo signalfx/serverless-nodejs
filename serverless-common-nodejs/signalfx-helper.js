@@ -2,8 +2,6 @@
 
 const signalfx = require('signalfx');
 
-const packageFile = require('./package.json')
-
 const AUTH_TOKEN = process.env.SIGNALFX_AUTH_TOKEN;
 const TIMEOUT_MS = process.env.SIGNALFX_SEND_TIMEOUT;
 
@@ -59,7 +57,6 @@ module.exports = {
 
   setDefaultDimensions: function(dimensions) {
     defaultDimensions = Object.assign(defaultDimensions, dimensions);
-    defaultDimensions.function_wrapper_version = packageFile.name + '-' + packageFile.version;
   },
 
   sendGauge: function addGauge(metricName, metricValue, dimensions) {

@@ -5,6 +5,8 @@ const WrapperCore = require('signalfx-serverless-common').WrapperCore;
 
 const ResponseWrapper = require('./response-wrapper');
 
+const packageFile = require('./package.json')
+
 const dimPrefix = 'gcp'
 const mapEnvDimension = {
   'FUNCTION_REGION': `${dimPrefix}_region`,
@@ -57,6 +59,8 @@ class SignalFxWrapper extends WrapperCore {
 
   defaultDimensions() {
     let dims = {};
+
+    dims.function_wrapper_version = packageFile.name + '-' + packageFile.version;
 
     for(let envKey in mapEnvDimension) {
       if(process.env[envKey]) {
