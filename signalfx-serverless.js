@@ -1,8 +1,8 @@
 'use strict';
 
-const sfxWrapper = require('./signalfx-wrapper');
+const gcfWrapper = require('./gcf-wrapper');
 
 // Keep the same structure to keep user experience unchanged.
 module.exports = {
-  wrapper: sfxWrapper
+  gcfWrapper
 };

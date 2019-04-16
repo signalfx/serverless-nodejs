@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = class ResponseWrapper {
   constructor(originalResp, onClose) {
     this.finishProcessed = false;

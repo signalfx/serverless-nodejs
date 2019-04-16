@@ -1,11 +1,14 @@
 'use strict';
 
-const helper = require('signalfx-serverless-common').helper;
-const WrapperCore = require('signalfx-serverless-common').WrapperCore;
+const helper = require('../serverless-common').helper;
+const WrapperCore = require('../serverless-common').WrapperCore;
 
 const ResponseWrapper = require('./response-wrapper');
 
-const packageFile = require('./package.json')
+const version = {
+  name: 'signalfx_gcf_nodejs',
+  version: '0.0.1'
+};
 
 const dimPrefix = 'gcp'
 const mapEnvDimension = {
@@ -60,7 +63,7 @@ class SignalFxWrapper extends WrapperCore {
   defaultDimensions() {
     let dims = {};
 
-    dims.function_wrapper_version = packageFile.name + '-' + packageFile.version;
+    dims.function_wrapper_version = version.name + '-' + version.version;
 
     for(let envKey in mapEnvDimension) {
       if(process.env[envKey]) {
