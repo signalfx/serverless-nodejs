@@ -1,8 +1,9 @@
 'use strict';
 
 const gcfWrapper = require('./gcf-wrapper');
+const helper = require('./serverless-common').helper;
 
-// Keep the same structure to keep user experience unchanged.
 module.exports = {
-  gcfWrapper
+  gcfWrapper,
+  helper
 };
