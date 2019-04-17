@@ -49,7 +49,7 @@ class SignalFxWrapper extends WrapperCore {
       helper.sendCounter('function.invocations', 1);
       if(this.isCold) {
         helper.sendCounter('function.cold_starts', 1);
-        this.isCold = true;
+        this.isCold = false;
       }
     }
 
