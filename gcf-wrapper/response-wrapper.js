@@ -1,5 +1,7 @@
 'use strict'
 
+// ResponseWrapper wraps an ExpressJS response object given by Google Cloud Function
+// to perform wrapper actions before finalizing the run with user returning the output.
 module.exports = class ResponseWrapper {
   constructor(originalResp, onClose) {
     this.finishProcessed = false;
