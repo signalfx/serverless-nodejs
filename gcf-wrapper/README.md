@@ -4,7 +4,7 @@ SignalFx Node.js Google Cloud Function Wrapper
 
 ## Usage
 
-The SignalFx NodeJS Google Cloud Function Wrapper is a wrapper around an Google Cloud Function NodeJS function handler, used to instrument execution of the function and send metrics to SignalFx.
+The SignalFx NodeJS Google Cloud Function Wrapper is a wrapper around a Google Cloud Function NodeJS function handler, used to instrument execution of the function and send metrics to SignalFx.
 
 ### Installation
 

@@ -35,8 +35,6 @@ class SignalFxWrapper extends WrapperCore {
     return this;
   }
 
-  // Invoke logic needs to be rewritten since different platform
-  // has each different way to call function/get feedback
   invoke() {
     const startTime = new Date().getTime();
     let sent;
@@ -47,7 +45,7 @@ class SignalFxWrapper extends WrapperCore {
       sent = true;
       helper.sendGauge('function.duration', new Date().getTime() - startTime);
       helper.sendCounter('function.invocations', 1);
-      if(this.isCold) {
+      if (this.isCold) {
         helper.sendCounter('function.cold_starts', 1);
         this.isCold = false;
       }
@@ -70,8 +68,8 @@ class SignalFxWrapper extends WrapperCore {
 
     dims.function_wrapper_version = version.name + '-' + version.version;
 
-    for(let envKey in mapEnvDimension) {
-      if(process.env[envKey]) {
+    for (let envKey in mapEnvDimension) {
+      if (process.env[envKey]) {
         dims[mapEnvDimension[envKey]] = process.env[envKey];
       }
     }
