@@ -2,8 +2,6 @@
 
 const helper = require('./signalfx-helper');
 
-let coldStart = true;
-
 module.exports = class WrapperCore {
   constructor(
     source,
@@ -16,11 +14,8 @@ module.exports = class WrapperCore {
     this.originalFn = originalFn;
 
     helper.setAccessToken(accessToken);
-    helper.setDefaultDimensions(Object.assign(this.defaultDimensions(), {metric_source: `${source}_wrapper`}, dimensions));
-    if (coldStart) {
-      this.isCold = true;
-      coldStart = false;
-    }
+    helper.setDefaultDimensions(Object.assign(this.defaultDimensions(), { metric_source: `${source}_wrapper` }, dimensions));
+
     return this;
   }
 }

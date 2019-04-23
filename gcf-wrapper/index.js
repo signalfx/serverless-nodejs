@@ -18,6 +18,8 @@ const mapEnvDimension = {
   'X_GOOGLE_FUNCTION_VERSION': `${dimPrefix}_function_version`
 };
 
+let coldStart = true;
+
 class SignalFxWrapper extends WrapperCore {
   constructor(
     accessToken,
@@ -45,9 +47,9 @@ class SignalFxWrapper extends WrapperCore {
       sent = true;
       helper.sendGauge('function.duration', new Date().getTime() - startTime);
       helper.sendCounter('function.invocations', 1);
-      if (this.isCold) {
+      if (coldStart) {
         helper.sendCounter('function.cold_starts', 1);
-        this.isCold = false;
+        coldStart = false;
       }
     }
 
